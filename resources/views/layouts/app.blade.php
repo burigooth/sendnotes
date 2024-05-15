@@ -14,13 +14,14 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @wireUiScripts
+        @livewireStyles
         <wireui:scripts />
         
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <livewire:layout.navigation />
-
+            
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -35,5 +36,10 @@
                 {{ $slot }}
             </main>
         </div>
-    </body>
+
+          @livewireScripts
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+        <x-livewire-alert::scripts />
+    </body> 
 </html>

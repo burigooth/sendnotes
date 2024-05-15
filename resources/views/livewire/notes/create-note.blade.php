@@ -9,8 +9,31 @@ new class extends Component {
     public $noteBody;
 
     public function submit()
-    {
-        dd($this->noteTitle, $this->noteRecipient, $this->noteSendDate, $this->noteBody);
+    {   
+        $validated = $this->validate([
+            'noteTitle' => ['required', 'string', 'min:5'],
+            'noteBody' => ['required', 'string', 'min:20'],
+            'noteRecipient' => ['required', 'email'],
+            'noteSendDate' => ['required', 'date'],
+        ]);
+        
+        auth()
+        ->user()
+        ->notes()
+        ->create([
+            'title' => $this->noteTitle,
+            'body' => $this->noteBody,
+            'recipient' => $this->noteRecipient,
+            'send_date' => $this->noteSendDate,
+            'is_published' => true,
+        ]);
+        $this->alert('success', 'Product added to the cart sucessfully!', [
+            'position' => 'bottom-end',
+            'timer' => 3000,
+            'toast' => true,
+           ]);
+           
+        redirect(route('notes.index'));
     }
 }; ?>
 
@@ -21,7 +44,8 @@ new class extends Component {
     <x-input wire:model="noteRecipient" label="Recipient" placeholder="yourfriend@email.com" type='email'/>
     <x-input icon="calendar" wire:model="noteSendDate" type="date" label="Send Date"/>
     <div class="pt-4">
-    <x-button primary wire:click="submit" primary right-icon="calendar" spinner> Schedule Note </x-button>
+    <x-button primary type="submit" primary right-icon="calendar" spinner> Schedule Note </x-button>
     </div>
+    <x-errors/>
     </form>
 </div>
