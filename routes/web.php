@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -32,7 +33,6 @@ Route::view('notes', 'notes.index')
 Route::view('notes/create', 'notes.create')
     ->middleware(['auth'])
     ->name('notes.create');
-
 
 Volt::route('notes/{note}/edit', 'notes.edit-note')
     ->middleware(['auth'])

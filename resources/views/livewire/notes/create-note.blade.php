@@ -1,6 +1,8 @@
 <?php
 
 use Livewire\Volt\Component;
+use App\Mail\NoteEmail;
+use App\Models\User;
 
 new class extends Component {
     public $noteTitle;
@@ -27,12 +29,10 @@ new class extends Component {
             'send_date' => $this->noteSendDate,
             'is_published' => true,
         ]);
-        $this->alert('success', 'Product added to the cart sucessfully!', [
-            'position' => 'bottom-end',
-            'timer' => 3000,
-            'toast' => true,
-           ]);
-           
+
+        $user = auth()->user();
+        
+        Mail::to($this->noteRecipient)->send(new NoteEmail($this->noteBody, $this->noteTitle, $user->name));
         redirect(route('notes.index'));
     }
 }; ?>
@@ -41,7 +41,7 @@ new class extends Component {
     <form wire:submit='submit' class="space-y-4">
     <x-input wire:model="noteTitle" label="Note Title" placeholder="It's been a great day. "/>
     <x-textarea wire:model="noteBody" label="Your note" placeholder="Share all your thoughts with your friend"/>
-    <x-input wire:model="noteRecipient" label="Recipient" placeholder="yourfriend@email.com" type='email'/>
+    <x-input icon="users" wire:model="noteRecipient" label="Recipient" placeholder="yourfriend@email.com" type='email'/>
     <x-input icon="calendar" wire:model="noteSendDate" type="date" label="Send Date"/>
     <div class="pt-4">
     <x-button primary type="submit" primary right-icon="calendar" spinner> Schedule Note </x-button>
