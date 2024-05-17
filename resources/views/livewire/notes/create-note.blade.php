@@ -46,6 +46,7 @@ new class extends Component {
     <div class="pt-4">
     <x-button primary type="submit" primary right-icon="calendar" spinner> Schedule Note </x-button>
     </div>
+    
     <x-errors/>
     </form>
 </div>
