@@ -37,7 +37,7 @@ class NotePolicy
      */
     public function update(User $user, Note $note): bool
     {
-        return $user->id === $note->user_id; // Only the user who created the note can update it
+        return $user->id === $note->user_id && now()->isBefore($note->send_date);// Only the user who created the note can update it
     }
 
     /**

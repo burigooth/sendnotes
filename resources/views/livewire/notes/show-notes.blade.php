@@ -27,8 +27,6 @@ new class extends Component {
             </svg>
             <span class="sr-only">Loading...</span>
         </div>
-        </div>
-        </div>
         HTML;
     }
 };
@@ -40,21 +38,25 @@ new class extends Component {
             <div class="text-center text-gray-500">
                 <p class="text-xl font-bold">No notes yet</p>
                 <p class="text-sm">Let's create your first note to send.</p>
-                <x-button primary icon-right="plus" class="mt-6" href="{{ route('notes.create') }}" wire:navigate>Create
-                    note</x-button>
+                <x-button primary icon-right="plus" class="mt-6" href="{{ route('notes.create') }}" wire:navigate>Create note</x-button>
             </div>
         @else
             <x-button primary icon-right="plus" class="mb-12 h-14" href="{{ route('notes.create') }}" wire:navigate>
-                Create note </x-button>
-            <div class="grid grid-cols-3 gap-4 ">
+                Create note
+            </x-button>
+            <div class="grid grid-cols-3 gap-4">
                 @foreach ($notes as $note)
                     <x-card wire:key='{{ $note->id }}'>
                         <div class="flex justify-between">
                             <div>
+                            @can('update', $note)
                                 <a href="{{ route('notes.edit', $note->id) }}" wire:navigate
                                     class="text-xl font-bold hover:underline hover:text-blue-500">
                                     {{ $note->title }}
                                 </a>
+                                @else
+                                <p class="text-xl font-bold text-gray-500">{{ $note->title }}</p>
+                                @endcan
                                 <p class="mt-2 text-xs"> {{ Str::limit($note->body, 50) }} </p>
                             </div>
                             <div class="text-xs text-gray-500">
@@ -62,12 +64,10 @@ new class extends Component {
                             </div>
                         </div>
                         <div class="flex items-end justify-between mt-4 space-x-1">
-                            <p class="text-xs">Recipient:<span class="font-semibold">{{ $note->recipient }}</span>
-                            </p>
+                            <p class="text-xs">Recipient:<span class="font-semibold">{{ $note->recipient }}</span></p>
                             <div>
-                                <x-button.circle icon="eye" class="hover:text-blue-500"></x-button.circle>
-                                <x-button.circle icon="trash" wire:click="delete('{{ $note->id }}')"
-                                    class="hover:text-red-500"></x-button.circle>
+                                <x-button.circle icon="eye" href="{{ route('notes.view', $note->id) }}" class="hover:text-blue-500"></x-button.circle>
+                                <x-button.circle icon="trash" wire:click="delete('{{ $note->id }}')" class="hover:text-red-500"></x-button.circle>
                             </div>
                         </div>
                     </x-card>

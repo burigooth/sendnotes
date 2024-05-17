@@ -19,7 +19,7 @@ class NoteEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($messageContent, $subject,$name)
+    public function __construct($messageContent, $subject, $name)
     {
         $this->messageContent = $messageContent;
         $this->subject = $subject;
