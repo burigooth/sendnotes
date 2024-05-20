@@ -8,6 +8,7 @@
         "php": "^8.1",
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
+        "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
         "jantinnerezo/livewire-alert": "^3.0",
         "laravel/breeze": "^1.29",

@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\NoteResource\Widgets\LikedNotes;
 use App\Filament\Resources\NoteResource\Widgets\NotesChart;
 use App\Filament\Resources\NoteResource\Widgets\StatsOverview;
 use Filament\Http\Middleware\Authenticate;
@@ -23,24 +24,26 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
-    {
+    {   
         return $panel
             ->default()
             ->id('admin')
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Indigo,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
+                
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 NotesChart::class,
+                LikedNotes::class,
                 // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([

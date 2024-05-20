@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
+
 class Note extends Model
 {
     use LivewireAlert;
