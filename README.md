@@ -1,4 +1,9 @@
 # SendNotes
+![image](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![image](https://img.shields.io/badge/livewire-4e56a6?style=for-the-badge&logo=livewire&logoColor=white)
+![image](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+
+
 <img alt="" src="sendnotes.jpeg">
 
 > Projeto desenvolvido para estudos e prática em Laravel, Livewire e Filament.
@@ -8,6 +13,7 @@
 - Livewire
 - Filament
 - WireUI
+- MySQL
 
 ## 💻 Projeto
 
