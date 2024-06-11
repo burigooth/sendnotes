@@ -6,7 +6,7 @@
 </div>
 <p class="mt-4 mb-12">{{ $note->body }}</p>
 <div class="flex items-center justify-between mt-12">
-    <h3 class="mr-2 text-sm">Sent from {{$user->name}}</h3>
+    <h3 class="mr-2 text-sm">Enviada por {{$user->name}}</h3>
     <livewire:heartreact :note="$note"/>
 </div>
 </x-guest-layout>

@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Log;
 
 class NotesChart extends ChartWidget
 {
-    protected static ?string $heading = "Notes created";
+    protected static ?string $heading = "Notas criadas.";
     protected static ?string $maxHeight = '270px';
-    
+   
     protected function getData(): array
     {
         // Use Trend para pegar os dados do banco de dados
@@ -32,7 +32,7 @@ class NotesChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Notes created',
+                    'label' => 'Notas criadas.',
                     'data' => $data,
                     'backgroundColor' => '#36A2EB',
                     'borderColor' => '#9BD0F5',
@@ -49,6 +49,6 @@ class NotesChart extends ChartWidget
 
     public function getDescription(): ?string
     {
-        return 'The number of notes sent.';
+        return 'O número de notas criadas.';
     }
 }

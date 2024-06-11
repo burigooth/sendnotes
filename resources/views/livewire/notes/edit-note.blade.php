@@ -55,14 +55,14 @@ new #[Layout('layouts.app')] class extends Component {
 <div class="py-12">
     <div class="max-w-2xl mx-auto space-y-4 sm:px-6 lg:px-8">
         <form wire:submit='saveNote' class="space-y-4">
-            <x-input wire:model="noteTitle" label="Note Title" placeholder="It's been a great day. " />
-            <x-textarea wire:model="noteBody" label="Your note" placeholder="Share all your thoughts with your friend" />
-            <x-input wire:model="noteRecipient" label="Recipient" placeholder="yourfriend@email.com" type='email' />
-            <x-input icon="calendar" wire:model="noteSendDate" type="date" label="Send Date" />
-            <x-checkbox label="Note Published" wire:model='noteIsPublished'/>
+        <x-input wire:model="noteTitle" label="Título da nota" placeholder="Tem sido um bom dia. "/>
+    <x-textarea wire:model="noteBody" label="Sua nota" placeholder="Compartilhe seus pensamentos..."/>
+    <x-input icon="users" wire:model="noteRecipient" label="Recipient" placeholder="seuamigo@gmail.com" type='email'/>
+    <x-input icon="calendar" wire:model="noteSendDate" type="date" label="Data"/>
+            <x-checkbox label="Note Enviada" wire:model='noteIsPublished'/>
             <div class="flex justify-between pt-4">
-                <x-button type="submit" secondary> Save Note </x-button>
-                <x-button href="{{ route('notes.index') }}" flat negative> Back to Notes </x-button>
+                <x-button type="submit" secondary> Salvar nota </x-button>
+                <x-button href="{{ route('notes.index') }}" flat negative> Voltar para Notas </x-button>
             </div>
             <x-action-message on="note-saved" class="text-green-500"/>
             <x-errors />

@@ -36,13 +36,13 @@ new class extends Component {
     <div class="space-y-2">
         @if ($notes->isEmpty())
             <div class="text-center text-gray-500">
-                <p class="text-xl font-bold">No notes yet</p>
-                <p class="text-sm">Let's create your first note to send.</p>
-                <x-button primary icon-right="plus" class="mt-6" href="{{ route('notes.create') }}" wire:navigate>Create note</x-button>
+                <p class="text-xl font-bold">Sem notas ainda...</p>
+                <p class="text-sm">Crie sua primeira nota.</p>
+                <x-button primary icon-right="plus" class="mt-6" href="{{ route('notes.create') }}" wire:navigate>Criar nota</x-button>
             </div>
         @else
             <x-button primary icon-right="plus" class="mb-12 h-14" href="{{ route('notes.create') }}" wire:navigate>
-                Create note
+            Criar nota
             </x-button>
             <div class="grid grid-cols-3 gap-4">
                 @foreach ($notes as $note)
@@ -64,7 +64,7 @@ new class extends Component {
                             </div>
                         </div>
                         <div class="flex items-end justify-between mt-4 space-x-1">
-                            <p class="text-xs">Recipient:<span class="font-semibold">{{ $note->recipient }}</span></p>
+                            <p class="text-xs">Destinatário:<span class="font-semibold">{{ $note->recipient }}</span></p>
                             <div>
                                 <x-button.circle icon="eye" href="{{ route('notes.view', $note->id) }}" class="hover:text-blue-500"></x-button.circle>
                                 <x-button.circle icon="trash" wire:click="delete('{{ $note->id }}')" class="hover:text-red-500"></x-button.circle>

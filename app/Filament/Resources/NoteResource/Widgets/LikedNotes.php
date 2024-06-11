@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Log;
 
 class LikedNotes extends ChartWidget
 {
-    protected static ?string $maxHeight = '220px';
-    protected static ?string $heading = "Notes Liked vs Not Liked";
+    protected static ?string $maxHeight = '270px';
+    protected static ?string $heading = "Notas curtidas x notas não curtidas";
     
     protected function getData(): array
     {
@@ -38,7 +38,7 @@ class LikedNotes extends ChartWidget
                     'borderColor' => '#333333',
                 ],
             ],
-            'labels' => ['Liked', 'Not Liked'],
+            'labels' => ['Curtida', 'Não curtida'],
         ];
     }
 
@@ -49,6 +49,6 @@ class LikedNotes extends ChartWidget
 
     public function getDescription(): ?string
     {
-        return 'The number of notes liked x not liked.';
+        return 'O número de notas curtidas por não curtidas.';
     }
 }

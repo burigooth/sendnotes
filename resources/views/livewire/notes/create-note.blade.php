@@ -39,12 +39,12 @@ new class extends Component {
 
 <div>
     <form wire:submit='submit' class="space-y-4">
-    <x-input wire:model="noteTitle" label="Note Title" placeholder="It's been a great day. "/>
-    <x-textarea wire:model="noteBody" label="Your note" placeholder="Share all your thoughts with your friend"/>
-    <x-input icon="users" wire:model="noteRecipient" label="Recipient" placeholder="yourfriend@email.com" type='email'/>
-    <x-input icon="calendar" wire:model="noteSendDate" type="date" label="Send Date"/>
+    <x-input wire:model="noteTitle" label="Título da nota" placeholder="Tem sido um bom dia. "/>
+    <x-textarea wire:model="noteBody" label="Sua nota" placeholder="Compartilhe seus pensamentos..."/>
+    <x-input icon="users" wire:model="noteRecipient" label="Recipient" placeholder="seuamigo@gmail.com" type='email'/>
+    <x-input icon="calendar" wire:model="noteSendDate" type="date" label="Data"/>
     <div class="pt-4">
-    <x-button primary type="submit" primary right-icon="calendar" spinner> Schedule Note </x-button>
+    <x-button primary type="submit" primary right-icon="calendar" spinner> Escrever nota </x-button>
     </div>
     
     <x-errors/>

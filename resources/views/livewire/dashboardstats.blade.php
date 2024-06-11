@@ -17,7 +17,7 @@ new class extends Component {
     <div class="flex justify-center space-x-20">
         <div>
             <div class="flex items-center text-2xl text-left text-gray-500">
-                <label>Sent.</label>
+                <label>Enviada.</label>
             </div>
             <div class="flex items-center justify-center bg-white border rounded shadow-lg h-52 w-96">
                 <div class="text-4xl font-bold text-center text-gray-800">
@@ -31,7 +31,7 @@ new class extends Component {
 
         <div>
             <div class="flex items-center text-2xl text-left text-gray-500">
-                <label>Liked.</label>
+                <label>Curtida.</label>
             </div>
             <div class="flex items-center justify-center bg-white border rounded shadow-lg h-52 w-96">
                 <div class="text-4xl font-bold text-center text-gray-800">
