@@ -22,6 +22,10 @@ O projeto consiste em envio de notas para quem você quiser, com envio automáti
 <br>
 Vídeo do projeto funcionando abaixo 👇
 
+
+https://github.com/burigooth/sendnotes/assets/134167077/bfebc4ef-8418-4365-b8fd-e0685a58f0e1
+
+
 ## 📝 Licença
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
